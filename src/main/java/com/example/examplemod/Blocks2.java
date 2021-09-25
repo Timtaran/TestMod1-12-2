@@ -16,7 +16,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber
 public class Blocks2 {
-
     @SubscribeEvent
     public static void block_break(final BlockEvent.BreakEvent event) {
         if (event.getWorld().getBlockState(event.getPos()).getBlock() instanceof BlockLog) {
@@ -27,19 +26,11 @@ public class Blocks2 {
         }
     }
     @SubscribeEvent
-    public static void clientChatEvent(ClientChatEvent event){
-        System.out.println(event.getMessage());
-        if (event.getMessage() == "inventory"){
-            Minecraft.getMinecraft().player.sendChatMessage("No");
-            event.setCanceled(true);
-        }
-    }
-    @SubscribeEvent
     public static void chat(final ClientChatEvent event){
         System.out.println(event.getMessage());
-        System.out.println(event.getMessage() == "inventory");
-        if (event.getMessage() == "inventory"){
-            Minecraft.getMinecraft().player.sendChatMessage("No");
+        if (event.getMessage().hashCode() == "inventory".hashCode()){
+            ITextComponent text = new TextComponentString(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+            Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
             event.setCanceled(true);
         }
     }
