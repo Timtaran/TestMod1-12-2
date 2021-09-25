@@ -5,7 +5,7 @@
   "description": "Мод сделанный DimucaTheDev и TimTarAn.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://mtamod.readthedocs.io/en/latest/",
   "updateUrl": "",
   "authorList": ["TimTarAn", "DimucaTheDev"],
   "credits": "",
