@@ -29,8 +29,12 @@ public class Blocks2 {
     public static void chat(final ClientChatEvent event){
         System.out.println(event.getMessage());
         if (event.getMessage().hashCode() == "inventory".hashCode()){
+            System.out.println("lol");
             ITextComponent text = new TextComponentString(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
-            Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+            //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn] >> \u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+            //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+            // TimTarAn lost connection: Недопустимые символы в чате
+            Minecraft.getMinecraft().player.sendMessage(text);
             event.setCanceled(true);
         }
     }
