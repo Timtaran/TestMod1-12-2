@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.google.common.eventbus.Subscribe;
+import com.example.examplemod.dev.tools.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.Minecraft;
@@ -29,13 +30,24 @@ public class Blocks2 {
     public static void chat(final ClientChatEvent event){
         System.out.println(event.getMessage());
         if (event.getMessage().hashCode() == "!#inventory".hashCode()){
-            System.out.println("lol");
-            ITextComponent text = new TextComponentString(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
-            //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn] >> \u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
-            //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
-            // TimTarAn lost connection: Недопустимые символы в чате
-            Minecraft.getMinecraft().player.sendMessage(text);
-            event.setCanceled(true);
+            if (Config.getBoolean("main", "invspk")) {
+                ITextComponent text = new TextComponentString(TextFormatting.DARK_GRAY+"\u041e\u0433\u043e, \u0432\u044b \u0440\u0435\u0448\u0438\u043b\u0438 \u0432\u044b\u0437\u0434\u043e\u0440\u043e\u0432\u0438\u0442\u044c, \u043f\u043e\u0445\u0432\u0430\u043b\u044c\u043d\u043e, \u043f\u043e\u0445\u0432\u0430\u043b\u044c\u043d\u043e...");
+                //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn] >> \u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+                //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+                // TimTarAn lost connection: Недопустимые символы в чате
+                Minecraft.getMinecraft().player.sendMessage(text);
+                Config.writeConfig("main", "invspk", true);
+                event.setCanceled(true);
+            }
+            else {
+                ITextComponent text = new TextComponentString(TextFormatting.GOLD + "[Инвентарь]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0420\u0435\u0436\u0438\u043c \u0448\u0438\u0437\u043e\u0444\u0440\u0435\u043d\u0438\u0438 \u0432\u043a\u043b\u044e\u0447\u0435\u043d!");
+                //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn] >> \u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+                //Minecraft.getMinecraft().player.sendChatMessage(TextFormatting.GOLD + "[TimTarAn]" + TextFormatting.RESET + " >> " + TextFormatting.GREEN + "\u0423\u0420\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410\u0410, \u0420\u0410\u0411\u041e\u0422\u0410\u0415\u0422, \u041d\u0410\u041a\u041e\u041d\u0415\u0426-\u0422\u041e!!!");
+                // TimTarAn lost connection: Недопустимые символы в чате
+                Minecraft.getMinecraft().player.sendMessage(text);
+                Config.writeConfig("main", "invspk", true);
+                event.setCanceled(true);
+            }
         }
     }
 
