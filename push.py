@@ -4,6 +4,6 @@ while True:
     os.system('git add .')
     os.system(f'git commit -m "{input("Name of update >>  ")}"')
     os.system(f'git push -u --force origin master')
-    a=input('Нажмите Enter для завершения работы программы или g и Enter для повторного запуска...')
+    a=input('Нажмите Enter для завершения работы программы или g и Enter для повторного запуска...\n')
     if a.lower() != "g":
         exit()
